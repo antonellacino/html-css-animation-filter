@@ -101,18 +101,34 @@
 /*Esercizio 10------------------------------------------------*/
 .ex-10-icon {
     font-size: 60px;
-    transition: transform: rotate(180deg);
-    transition-duration: 20s;
+    animation-name: rotazione;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: reverse;
+  }
 /*animazione*/
-
-
+@keyframes rotazione {
+  0 {transform: rotate(0deg);}
+  100% {transform: rotate(360deg);}
+}
 
 /*Esercizio 11------------------------------------------------*/
 .ex-11-icon {
     font-size: 60px;
 }
 /*animazione*/
-/*fine animazione*/
+.ex-11-icon:hover{
+  animation-name: rotazione2;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+}
+@keyframes rotazione2 {
+  0 {transform: rotate(0deg);}
+  90% {transform: rotate(270deg);}
+  100% {transform: rotate(0);}
+}
+/*Esercizio 12------------------------------------------------*/
 .ex-12-button, .ex-13-button {
     position: relative;
     display: block;
@@ -143,4 +159,54 @@
     height: 20px;
 }
 /*animazione*/
-/*fine animazione*/
+.ex-12-button:hover .ex-12-top-white, .ex-12-button:hover .ex-12-bottom-white{
+  animation-name: rotazione-bottone;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: 2;
+}
+.ex-12-button:hover .ex-12-top-white{
+  animation-direction: alternate;
+}
+.ex-12-button:hover .ex-12-bottom-white{
+  animation-name: rotazione-bottone2;
+  animation-direction: alternate;
+}
+
+@keyframes rotazione-bottone {
+  0 {transform: translateX(0);}
+  100% {transform: translateX(100px);}
+}
+@keyframes rotazione-bottone2 {
+  0 {transform: translateX(0);}
+  100% {transform: translateX(-100px);}
+}
+/*Esercizio 13------------------------------------------------*/
+.ex-13-button:hover .ex-13-bottom-white, .ex-13-button:hover .ex-13-top-white{
+    animation-duration: 3s;
+    animation-timing-function: linear;
+    animation-iteration-count: 2;
+}
+.ex-13-button:hover .ex-13-top-white{
+  animation-name: rotazione-completa;
+}
+.ex-13-button:hover .ex-13-bottom-white{
+  animation-name: rotazione-completa2;
+}
+.ex-13-bottom-white, .ex-13-top-white{
+  position: absolute;
+}
+@keyframes rotazione-completa {
+  0 { top:0; left:0;}
+  25% {top:0; left: calc(100% - 5%);}
+  50% {top:calc(100% - 5%); left: calc(100% - 5%);}
+  75% {top:calc(100% - 5%); left: 0;}
+  100% { top:0; left:0;}
+}
+@keyframes rotazione-completa2 {
+  0 { bottom:0; right:0;}
+  25% {bottom:0; right: calc(100% - 5%);}
+  50% {bottom:calc(100% - 5%); right: calc(100% - 5%);}
+  75% {bottom:calc(100% - 5%); right: 0;}
+  100% { bottom:0; right:0;}
+}
